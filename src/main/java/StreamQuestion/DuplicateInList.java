@@ -8,6 +8,7 @@ public class DuplicateInList {
 
 	public static void main(String[] args) {
 		
+		// find the duplicate
 		HashSet<Integer> hs1 = new HashSet<>();
 		System.out.println(hs1.add(1));
 		System.out.println(hs1.add(1));
@@ -16,6 +17,13 @@ public class DuplicateInList {
 		List<Integer> res = ll.stream().filter(e->!hs.add(e)).collect(Collectors.toList());
 		System.out.println(res);
 		System.out.println();
+		
+		//remove the duplicate
+				HashSet<Integer> hs2 = new HashSet<>();
+				List<Integer> ll2 = Arrays.asList(4,5,6,7,8,9,4,5,6);
+				List<Integer> res2 = ll2.stream().filter(e->hs2.add(e)).collect(Collectors.toList());
+				System.out.println(res2);
+				System.out.println();		
 
 		
 		// find frquency of element
