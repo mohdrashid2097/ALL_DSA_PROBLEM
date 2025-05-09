@@ -11,7 +11,7 @@ public class MergeKSortedArray {
 		int aPosition;
 		int valPosition;
 		
-		Data(int value, int aPosition, int valPosition ){
+		Data(int aPosition, int valPosition,int value ){
 			this.value = value;
 			this.aPosition = aPosition;
 			this.valPosition = valPosition;
@@ -34,7 +34,7 @@ public class MergeKSortedArray {
 		PriorityQueue<Data> pq = new PriorityQueue<Data>();
 		
 		for(int i=0;i<arr.length;i++) {
-			pq.add(new Data(arr[i][0],i,0));
+			pq.add(new Data(i,0,arr[i][0]));
 		}
 		
 		while(!pq.isEmpty()) {
@@ -43,18 +43,19 @@ public class MergeKSortedArray {
 			int ap = curr.aPosition;
 			int vp = curr.valPosition;
 			if(vp+1 < (arr[ap].length)) {
-				pq.add(new Data(arr[ap][vp+1],ap,vp+1));
+				pq.add(new Data(ap,vp+1,arr[ap][vp+1]));
 			}
 		}
 		System.out.println(res);
 	}
+	
 	
 	public static void main(String[] args) {
 		 int[][] arr = { { 2, 6, 12 },
                          { 1, 9 },
                          { 23, 34, 90, 2000 }
                        };
-		 mergeKArrays(arr, arr.length);	 
+		 mergeKArrays(arr, arr.length);	
 
 	}
 

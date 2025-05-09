@@ -40,31 +40,35 @@ class MyNodeComparator implements Comparator<Node>{
 
 public class MergeKList {
 	
-	public static void mergeKSortedLikedList(Node[] arr,int k) {
-		PriorityQueue<Node> pq = new PriorityQueue<>();
-		Node head = new Node(0);
-		Node temp = head;
-		for(int i=0;i<k;i++) {
-		   if(arr[i] != null) {
-			   pq.add(arr[i]);
-		   }
-		}
+	public static void mergeKSortedLikedListNew(Node[] arr,int k) {
+		if( arr == null || arr.length == 0) return;//return null;
 		
-		while(!pq.isEmpty()) {
-			Node curr = pq.poll();
-			temp.next = curr;
-			temp = temp.next;
-			if(curr.next != null) {
-				pq.add(curr.next);
+		//creating mini priority queue
+		PriorityQueue<Node> minpq = new PriorityQueue<Node>(Comparator.comparingInt(node->node.data));
+		for(Node head:arr) {
+			if(head != null) {
+				minpq.add(head);
 			}
 		}
 		
-		Node res = head.next;
+		Node dummyNode = new Node(0);
+		Node curr = dummyNode;
+		while(!minpq.isEmpty()) {
+			Node smallestNode = minpq.poll();
+			curr.next = smallestNode;
+			curr = curr.next;
+			if(smallestNode.next != null) {
+				minpq.add(smallestNode.next);
+			}
+		}
 		
+		System.out.println("Merged LinkedList: "+dummyNode.next);
+		Node res = dummyNode.next;
 		while(res != null) {
 			System.out.print(res.data+" ");
 			res = res.next;
 		}
+		
 	}
 
 	public static void main(String[] args) {
@@ -92,7 +96,7 @@ public class MergeKList {
 		head3.next.next = new Node(10);
 		head3.next.next.next = new Node(11);
 		
-		mergeKSortedLikedList(a,n);
+		mergeKSortedLikedListNew(a,n);
 		
 		
 

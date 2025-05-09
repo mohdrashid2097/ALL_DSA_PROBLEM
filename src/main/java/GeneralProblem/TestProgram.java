@@ -3,6 +3,8 @@ package GeneralProblem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TestProgram {
 
@@ -25,6 +27,12 @@ public class TestProgram {
 		System.out.println(0.1*3==0.3);
 		System.out.println(0.1*4==0.4);
 		System.out.println(0.1*5==0.5);
+		
+		// need to add in string questions list
+		String str = "hello kichha rudrapura";
+		String ans = Arrays.stream(str.split(" ")).map(word -> word.substring(0,1).toUpperCase() +word.substring(1))
+				.collect(Collectors.joining(" "));
+		System.out.println("Answer: "+ans);
 	}
 
 }

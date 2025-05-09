@@ -1,8 +1,7 @@
 package Arrays;
-
-class Solution
+class ConvertFirstLetterOfEachWord
 {
-    public String transform(String s)
+    public static String transform(String s)
     {
         char[] arr = s.toCharArray();
         boolean foundSpace = true;
@@ -24,5 +23,9 @@ class Solution
         // str = String.valueOf(arr);
         return String.valueOf(arr);
         
+    }
+    
+    public static void main(String[] arg) {
+    	System.out.println(transform("hello kichha rudrapur"));
     }
 }
