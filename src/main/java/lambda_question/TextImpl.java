@@ -1,8 +1,14 @@
 package lambda_question;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class TextImpl {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		// add two number
 		Adder adder =(a,b) -> a+b;
@@ -27,9 +33,14 @@ public class TextImpl {
 			}
 		};
 		Thread t = new Thread(r);
-		t.start();
+		//t.start();
 		
-		
+		// implementing callable interface
+		Callable<String> callable = ()-> "Hellow Callable interface!";
+		ExecutorService executorService = Executors.newSingleThreadExecutor();
+		Future<String> future= executorService.submit(callable);
+		System.out.println(future.get());
+		executorService.shutdown();
 	}
 
 }

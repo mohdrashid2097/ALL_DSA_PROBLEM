@@ -37,8 +37,4 @@ public class Employee {
 		this.compName = compName;
 	}
 	
-	
-	
-	
-
 }

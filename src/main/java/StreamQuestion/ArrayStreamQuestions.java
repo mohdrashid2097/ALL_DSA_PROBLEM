@@ -19,7 +19,7 @@ public class ArrayStreamQuestions {
 				.flatMap(x -> Arrays.stream(numbers).filter(y -> x+y==target1 && x<y).mapToObj(y-> List.of(x,y)))
 				.collect(Collectors.toSet());
 		
-		//System.out.println("Pairs sum: "+ res1);
+		System.out.println("Pairs sum: "+ res1);
 		
 		// triplet sum
 		int[] num = {-1, 0, 1, 2, -1, -4};
