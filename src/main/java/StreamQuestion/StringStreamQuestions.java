@@ -111,6 +111,12 @@ public class StringStreamQuestions {
 		  
 		  System.out.println("All the anagrams: "+anagrams);
 		  
+		  String[] str1 = {"Hello","mohd rashid"};
+		  List<String> ansStr = Arrays.stream(str1).flatMap(str -> Arrays.stream(str.split(" ")))
+				  .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1))
+				  .collect(Collectors.toList());
+		  System.out.println("Answer_Str: "+ansStr);
+		  
 		  
 	}
 

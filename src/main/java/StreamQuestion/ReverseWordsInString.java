@@ -31,5 +31,14 @@ public class ReverseWordsInString {
 		
 		// mapToObj:
 		//Return Value : The function returns an object-valued Stream consisting of the results of applying the given function.
+		
+		List<String> word = new ArrayList<String>(List.of(str2.trim().split("\\s+")));
+		Collections.reverse(word);
+		String result1 = String.join(" ", word);
+		System.out.println("result1: "+result1);
+		
+		List<String> word1 = new ArrayList<String>(List.of(str2.trim().split("\\s+")));
+		String result2 = IntStream.iterate(word1.size()-1, i -> i >=0 , i->i-1).mapToObj(word1::get).collect(Collectors.joining(" "));
+		System.out.println("result2: "+result2);
 	}
 }

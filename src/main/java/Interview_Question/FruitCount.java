@@ -38,10 +38,14 @@ public class FruitCount {
         
         //3. Get distinct fruit names:
         Set<String> res3 = items.stream().map(item->item.itemName).collect(Collectors.toSet());
-        //System.out.println("Res3: "+res3);
+        System.out.println("Res3: "+res3);
+        
+        List<String> res4 = items.stream().map(item->item.itemName).distinct().collect(Collectors.toList());
+        System.out.println("Res4: "+res3);
         
         //4. Sort items by quantity:
         List<Item> sortedByQuantity = items.stream().sorted(Comparator.comparing(Item::getItemQuantity)).collect(Collectors.toList());
+        
         
         //5. Total quantity of all fruits combined:
         int totalQuantity = items.stream().mapToInt(item->item.getItemQuantity()).sum();
@@ -90,7 +94,7 @@ public class FruitCount {
         				  Collectors.summingInt(item->item.getItemQuantity())
         )));
         
-       // System.out.println("groupedByNameAndPrice : "+groupedByNameAndPrice );
+        System.out.println("groupedByNameAndPrice : "+groupedByNameAndPrice );
        
        //14. Convert to Map → name → totalPrice (price × quantity):
         
@@ -100,7 +104,7 @@ public class FruitCount {
         	            i -> i.getItemPrice().multiply(new BigDecimal(i.getItemQuantity())),
         	            BigDecimal::add)));
         System.out.println("nameToTotalPrice: "+nameToTotalPrice);
-
+        
         
     
     }

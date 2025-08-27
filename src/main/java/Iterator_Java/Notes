@@ -1,0 +1,54 @@
+🔑 Key Points
+We used merge(key, value, remappingFunction) → which ensures atomic updates.
+Both threads safely incremented the counter for "Java".
+Without ConcurrentHashMap, a normal HashMap would be unsafe and may cause race conditions.
+
+t1.start();
+t2.start();
+
+t1.join();
+t2.join();
+🔹 What does join() do?
+join() is a method of the Thread class.
+When you call t1.join(), the main thread (the one running main) waits until t1 finishes execution.
+Similarly, t2.join() makes the main thread wait until t2 completes.
+
+So, with both calls:
+Start t1 and t2 (both run in parallel).
+main thread pauses at t1.join() until t1 is done.
+Then main waits at t2.join() until t2 is also done.
+Only after both are finished, the main thread moves to:
+
+System.out.println("Final Count: " + map.get("Java"));
+
+🔹 Why is it important here?
+Without join(), the main thread might print the map before both threads finish updating, so you could get a smaller count (e.g., 500 instead of 2000).
+
+Example (without join()):
+
+java
+Copy code
+t1.start();
+t2.start();
+
+System.out.println("Final Count: " + map.get("Java")); // may print null or partial result
+👉 This can happen because main doesn’t wait for t1 and t2 to complete.
+================================================================================================
+
+🔹 Your Code (Increment Example)
+In your HashMapThreadExample, both threads are only updating the map:
+map.put("Java", map.getOrDefault("Java", 0) + 1);
+
+
+There is no iteration (for-each, iterator, stream) happening.
+So, you will not get ConcurrentModificationException.
+Instead, you get a race condition: multiple threads read/update/write the same key without synchronization → final count becomes inconsistent\
+ (less than 2000).
+
+🔹 Key Difference
+ConcurrentModificationException = happens during iteration + modification in fail-fast collections (HashMap, ArrayList, etc.).
+Race condition (wrong result) = happens when multiple threads update shared data (like in your counter example) without synchronization, 
+but not iterating.
+✅ That’s why your HashMap example doesn’t throw exception — it just gives incorrect results.
+✅ Your ConcurrentHashMap example always works correctly (because updates are atomic).
+
