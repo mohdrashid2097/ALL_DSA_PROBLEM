@@ -109,14 +109,20 @@ public class StringStreamQuestions {
 				            .equals(target.chars().sorted().boxed().collect(Collectors.toList())))
 				    .collect(Collectors.toList());
 		  
-		  System.out.println("All the anagrams: "+anagrams);
+		  //System.out.println("All the anagrams: "+anagrams);
 		  
 		  String[] str1 = {"Hello","mohd rashid"};
 		  List<String> ansStr = Arrays.stream(str1).flatMap(str -> Arrays.stream(str.split(" ")))
 				  .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1))
 				  .collect(Collectors.toList());
-		  System.out.println("Answer_Str: "+ansStr);
+		  //System.out.println("Answer_Str: "+ansStr);
 		  
+		  //17 You can filter out the strings containing digits using Java 8 Streams and a regex.
+		  List<String> strWithDigit = Arrays.asList("aa", "aa23bb", "vv", "bb", "g3g");
+		  List<String> resStrWithDigit = strWithDigit.stream().filter( s -> s.matches(".*\\d.*")).collect(Collectors.toList());
+		  //System.out.println("ResStrWithDigit: "+resStrWithDigit);
+		  List<String> resStrWithoutDigit = strWithDigit.stream().filter( s -> !s.matches(".*\\d.*")).collect(Collectors.toList());
+		  //System.out.println("ResStrWithoutDigit: "+resStrWithoutDigit);
 		  
 	}
 
