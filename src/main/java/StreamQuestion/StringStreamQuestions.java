@@ -1,6 +1,7 @@
 package StreamQuestion;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -110,7 +111,27 @@ public class StringStreamQuestions {
 				    .collect(Collectors.toList());
 		  
 		  //System.out.println("All the anagrams: "+anagrams);
+		  //Group Anagrams Together
+		  //Using Java Stream API
 		  
+		  List<String> wordArr = Arrays.asList("eat","tea","tan","ate","nat","bat");
+		  Map<String,List<String>> ans = wordArr.stream().collect(Collectors.groupingBy(word ->{
+				char[] arr = word.toCharArray();
+				Arrays.sort(arr);
+				return new String(arr);
+			}));
+		  
+		  Collection<List<String>> grouped = wordArr.stream().collect(Collectors.groupingBy(
+				  word -> {
+					  char[] arr = word.toCharArray();
+					  Arrays.sort(arr);
+					  return new String(arr);  // key sorted word
+				  }
+				  )).values();
+		  
+		  System.out.println(grouped);
+				  
+		  // Capitalize the first letter of each word		  
 		  String[] str1 = {"Hello","mohd rashid"};
 		  List<String> ansStr = Arrays.stream(str1).flatMap(str -> Arrays.stream(str.split(" ")))
 				  .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1))

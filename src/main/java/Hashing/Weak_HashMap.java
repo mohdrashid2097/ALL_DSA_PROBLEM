@@ -2,6 +2,7 @@ package Hashing;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 public class Weak_HashMap {
 	
@@ -15,21 +16,22 @@ public class Weak_HashMap {
 //	If a key is no longer used anywhere else in the program, the garbage collector (GC) can automatically remove that entry.
 
 	public static void main(String[] args) {
-		// Hashmap
-		Map<Object,String> map = new HashMap<Object, String>();
-		Object key = new Object();
-		map.put(key, "value");
-		key = null;
-		System.gc();
-		System.out.println(map);
-		
-		//WeakHashmap
-		Map<Object,String> map1 = new HashMap<Object, String>();
-		Object key1 = new Object();
-		map.put(key1, "value");
-		key1 = null;
-		System.gc();
-		System.out.println(map1);
+		Map<Object, String> hashMap = new HashMap<>();
+        Map<Object, String> weakHashMap = new WeakHashMap();
+
+        Object key1 = new Object();
+        Object key2 = new Object();
+
+        hashMap.put(key1, "HashMap Value");
+        weakHashMap.put(key2, "WeakHashMap Value");
+
+        key1 = null; // remove strong reference
+        key2 = null; // remove strong reference
+
+        System.gc(); // force garbage collection
+
+        System.out.println("HashMap: " + hashMap); 
+        System.out.println("WeakHashMap: " + weakHashMap);
 
 	}
 

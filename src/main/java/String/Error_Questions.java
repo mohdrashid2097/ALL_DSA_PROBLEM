@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 public class Error_Questions {
 	
-
 	public static void main(String[] args) {
 		
 		// two sums:
