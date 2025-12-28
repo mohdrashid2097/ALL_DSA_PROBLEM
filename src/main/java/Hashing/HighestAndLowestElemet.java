@@ -26,6 +26,7 @@ public class HighestAndLowestElemet {
 				System.out.print("MaxFreElement :"+m.getKey()+" ");
 			}
 		}
+		
 		System.out.println();
 		System.out.println("Min :"+count_min);
 		System.out.println("Max :"+count_max);

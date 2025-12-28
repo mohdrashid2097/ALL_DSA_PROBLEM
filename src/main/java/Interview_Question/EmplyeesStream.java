@@ -2,8 +2,10 @@ package Interview_Question;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class EmplyeesStream {
@@ -44,19 +46,66 @@ public class EmplyeesStream {
 		
 		//6 you have a list of employees. How would you group them by department and then count the number of employees in eacxh department.
 		Map<String,Long> totalEmpEachDepart = emp.stream().collect(Collectors.groupingBy(e->e.depart,Collectors.counting()));
-		System.out.println("TotalEmpInEachDepart: "+totalEmpEachDepart);
+		//System.out.println("TotalEmpInEachDepart: "+totalEmpEachDepart);
 		
 		//6 you have a list of employees in each department
 		Map<String,List<String>> empInEachDepart = emp.stream().collect(Collectors.groupingBy(e->e.depart, Collectors.mapping(Employee::getName, Collectors.toList())));
 		empInEachDepart.forEach((depart,empList) ->{
-			System.out.println(depart+" : "+empList);
+		//System.out.println(depart+" : "+empList);
 		});
 		
 		
+		// All the scenarios in case of employee
 		
+		//1 Group Employee by department
+		Map<String,List<Employee>> employee1 = emp.stream().collect(Collectors.groupingBy(e->e.getDepart()));
+		employee1.forEach((depart, e)->{
+			//System.out.println("Depart: "+depart+" : Emplyee:"+e.get(0).getName());
+		});
 		
+		// Group employee by depart and sum their salary
+		Map<String,Double> employee2 = emp.stream().collect(Collectors.groupingBy(e->e.depart,Collectors.averagingDouble(e->e.getSalary())));
+		employee2.forEach((depart,sumOfSalary)->{
+			//System.out.println("Depart: "+depart+" : SumOfSalary:"+sumOfSalary);
+		});
 		
+		// Group employee by depart and sum their salary
+		Map<String,Double> employee3 = emp.stream().collect(Collectors.groupingBy(e->e.getDepart(),Collectors.averagingDouble(e->e.getSalary())));
+		employee3.forEach((depart, avgSalary)->{
+			//System.out.println("Depart: "+depart+ " : avgSalary: "+avgSalary);
+		});
 		
+		// Group by department and find highest paid employee
+		Map<String, Optional<Employee>> employee4 = emp.stream()
+				.collect(Collectors
+						.groupingBy(
+								e->e.depart, 
+								Collectors.maxBy(Comparator.comparingDouble(e->e.getSalary()))));
+		employee3.forEach((depart,e) ->{
+			//System.out.println("Depart: "+depart+" : MaximumSalary: "+e);
+		});
+		
+		// Group by department and create a summary (count, sum, avg, min, max)
+		Map<String, DoubleSummaryStatistics> stats = emp.stream().collect(Collectors.groupingBy(e->e.getDepart(),
+				Collectors.summarizingDouble(e->e.getSalary())));
+		
+		stats.forEach((depart,s)->{
+			//System.out.println("Department"+depart+" : Average: "+s.getAverage()+" : Sum: "+s.getSum());
+		});
+		
+		//Group by department and map only salaries
+		Map<String, List<Double>> employee5 = emp.stream().collect(Collectors.groupingBy(e->e.getDepart(),
+				Collectors.mapping(e->e.getSalary(), Collectors.toList())));
+		employee5.forEach((depart, salary)->{
+			//System.out.println("Department: "+depart+" : Salary:"+salary);
+		});
+		
+		////Group by department and map only semployee
+		Map<String,List<String>> employee6 = emp.stream().collect(Collectors.groupingBy(e->e.getDepart(),
+				Collectors.mapping(e->e.getName(), Collectors.toList())));
+		employee6.forEach((depart,empName)->{
+			//System.out.println("Depart: "+depart+" : EmployeesName: "+empName);
+		});
 	}
 
 }
