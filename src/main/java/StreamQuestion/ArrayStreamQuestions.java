@@ -20,6 +20,7 @@ public class ArrayStreamQuestions {
 				.collect(Collectors.toSet());
 		
 		System.out.println("Pairs sum: "+ res1);
+		res1.forEach(res -> System.out.println(res));
 		
 		// triplet sum
 		int[] num = {-1, 0, 1, 2, -1, -4};
@@ -29,7 +30,8 @@ public class ArrayStreamQuestions {
 				.flatMap(b ->Arrays.stream(num)
 				.filter(c -> a+b+c == target && a<b && b<c).mapToObj(c -> List.of(a,b,c))))
 				.collect(Collectors.toSet());
-		//System.out.println("Triplet sum: "+res);
+		System.out.println("Triplet sum: "+res);
+		res.forEach(re -> System.out.println(re));
 	
 	}
 
