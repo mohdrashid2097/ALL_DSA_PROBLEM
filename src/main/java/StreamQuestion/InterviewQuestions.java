@@ -12,7 +12,6 @@ public class InterviewQuestions {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
 		// print series
 		//Print series: 11, 12, 15, 20, 27
 				
