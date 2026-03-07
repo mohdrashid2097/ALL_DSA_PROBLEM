@@ -108,6 +108,33 @@ public class OptionalClassesQuestionNotes {
 			//	Cannot be serialized directly without additional effort.
 			//	Should not be used in class fields or method parameters.
 		
+//		1 isPresent()
+//		Purpose:
+//		Checks whether a value exists inside the Optional.
+//		Return Type:
+//		boolean
+//		Typical Use:
+//		Used with an if statement to manually handle the value.
+		
+		Optional<String> name1 = Optional.of("Rashid");
+
+		if(name1.isPresent()) {
+		    System.out.println(name1.get());
+		}
+		
+		
+//		2️: ifPresent()
+//		Purpose:
+//		Executes a block of code only if the value exists.
+//		Return Type:
+//		void
+//		Typical Use:
+//		Used with Lambda expressions (Functional style).
+		
+		Optional<String> name2 = Optional.of("Rashid");
+
+		name2.ifPresent(n -> System.out.println(n));
+		
 		
 	}
 

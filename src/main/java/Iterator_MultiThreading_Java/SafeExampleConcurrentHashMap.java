@@ -7,8 +7,8 @@ public class SafeExampleConcurrentHashMap {
 
 	public static void main(String[] args) {
 		
-		//HashMap<Integer, String> map = new HashMap();
-		ConcurrentHashMap<Integer,String> map = new ConcurrentHashMap<Integer, String>();
+		HashMap<Integer, String> map = new HashMap();
+		//ConcurrentHashMap<Integer,String> map = new ConcurrentHashMap<Integer, String>();
 		map.put(1, "A");
 		map.put(2, "B");
 		map.put(3, "C");

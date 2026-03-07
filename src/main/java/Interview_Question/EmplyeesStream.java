@@ -49,7 +49,8 @@ public class EmplyeesStream {
 		//System.out.println("TotalEmpInEachDepart: "+totalEmpEachDepart);
 		
 		//6 you have a list of employees in each department
-		Map<String,List<String>> empInEachDepart = emp.stream().collect(Collectors.groupingBy(e->e.depart, Collectors.mapping(Employee::getName, Collectors.toList())));
+		Map<String,List<String>> empInEachDepart = emp.stream().collect(Collectors.groupingBy(e->e.depart, 
+				Collectors.mapping(Employee::getName, Collectors.toList())));
 		empInEachDepart.forEach((depart,empList) ->{
 		//System.out.println(depart+" : "+empList);
 		});

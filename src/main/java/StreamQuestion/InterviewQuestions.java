@@ -66,6 +66,16 @@ public class InterviewQuestions {
 		long res9 = ll3.stream().filter(word ->word.matches(".*\\d.*")).count();
 		System.out.println("Word count : "+res9);
 		
+		//1️: Dot (.)
+        //Meaning: Matches any single character
+		//2️ Plus (+)
+		//Meaning: One or more occurrences
+		//3 Star (*)
+		//Meaning: Zero or more occurrences
+		//4 Question Mark (?)
+		//Meaning: Zero or one occurrence
+		//5 Square Brackets [ ]
+		//Meaning: Match any one character inside
 		
 	}
 }

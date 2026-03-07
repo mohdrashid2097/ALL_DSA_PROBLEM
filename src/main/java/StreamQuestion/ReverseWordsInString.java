@@ -28,6 +28,7 @@ public class ReverseWordsInString {
 		List<String> ll = Arrays.asList(str2.split(" "));
 		String res2 = IntStream.rangeClosed(1, ll.size()).mapToObj(i->ll.get(ll.size()-i)).collect(Collectors.joining(" "));
 		System.out.println("Result 2nd way: "+ res2 );
+
 		
 		// mapToObj:
 		//Return Value : The function returns an object-valued Stream consisting of the results of applying the given function.
