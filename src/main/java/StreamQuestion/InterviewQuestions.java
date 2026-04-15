@@ -2,6 +2,7 @@ package StreamQuestion;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
@@ -47,7 +48,7 @@ public class InterviewQuestions {
 		char res5 = str.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(c->c, Collectors.counting()))
 				.entrySet().stream().sorted((c1,c2)->Long.compare(c2.getValue(), c1.getValue())).skip(1)
 				.findFirst().get().getKey();
-		System.out.println("2nd most repeated char: "+res5);
+		//System.out.println("2nd most repeated char: "+res5);
 		
 		//extract all the digit from the string
 		String str1 = "abc123bb23jhg56bg7d8k9abc90k0";
@@ -64,7 +65,7 @@ public class InterviewQuestions {
 		
 		List<String> ll3 = List.of("abc","a1b","no","xyz78","nope");
 		long res9 = ll3.stream().filter(word ->word.matches(".*\\d.*")).count();
-		System.out.println("Word count : "+res9);
+		//System.out.println("Word count : "+res9);
 		
 		//1️: Dot (.)
         //Meaning: Matches any single character
@@ -77,5 +78,14 @@ public class InterviewQuestions {
 		//5 Square Brackets [ ]
 		//Meaning: Match any one character inside
 		
+		//write a program to get unique character from string.
+		String strr = "abcdeab";
+		HashSet<Character> hs = new HashSet();
+	    List<Character> res = strr.chars().mapToObj(c->(char)c).filter(c->hs.add(c)).collect(Collectors.toList());
+	    System.out.println(res);
+	    
+	    String strResult = strr.chars().mapToObj(c->(char)c).distinct().map(String::valueOf).collect(Collectors.joining());
+	    //System.out.println("Unique Output: "+strResult);
+	    
 	}
 }

@@ -16,7 +16,7 @@ public class Max_Heap_UsingPriorityQueue {
 		maxHeap.add(15);
 		maxHeap.add(20);
 		maxHeap.add(25);
-		
+		System.out.println("Print PQ: "+maxHeap);
 		System.out.println("Peek: "+maxHeap.peek());
 
 	}

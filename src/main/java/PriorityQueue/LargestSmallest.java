@@ -14,6 +14,7 @@ public class LargestSmallest {
         		pq.poll();
         	}
         }
+        
         while(!pq.isEmpty()) {
         	System.out.print(pq.peek()+" ");
         	pq.poll();

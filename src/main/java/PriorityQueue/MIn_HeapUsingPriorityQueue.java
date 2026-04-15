@@ -20,7 +20,7 @@ public class MIn_HeapUsingPriorityQueue {
 		minHeap.add(20);
 		minHeap.add(25);
 		minHeap.add(30);
-		
+		System.out.println("Min Heap PQ: "+minHeap);
 		System.out.println("Peek Element: "+minHeap.peek());
 	}
 

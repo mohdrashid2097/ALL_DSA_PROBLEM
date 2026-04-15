@@ -129,7 +129,7 @@ public class StringStreamQuestions {
 				  }
 				  )).values();
 		  
-		  System.out.println(grouped);
+		  //System.out.println(grouped);
 				  
 		  // Capitalize the first letter of each word		  
 		  String[] str1 = {"Hello","mohd rashid"};
@@ -145,6 +145,20 @@ public class StringStreamQuestions {
 		  List<String> resStrWithoutDigit = strWithDigit.stream().filter( s -> !s.matches(".*\\d.*")).collect(Collectors.toList());
 		  //System.out.println("ResStrWithoutDigit: "+resStrWithoutDigit);
 		  
+		  // Sort word based on word length
+		  List<String> str2 = Arrays.asList("Hello","MD", "rashid");
+		  List<String> sortBasedOnLength = str2.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
+		  System.out.println("SortBasedOnLength: "+sortBasedOnLength);
+		  
+		  List<String> sortInReverseOrder = str2.stream().sorted(Comparator.comparingInt(String::length).reversed()).collect(Collectors.toList());
+		  System.out.println("sortInReverseOrder: "+sortInReverseOrder);
+		  
+		  // word with max length
+		  String word1 = str2.stream().sorted(Comparator.comparingInt(String:: length).reversed()).findFirst().get();
+		  System.out.println("Word with max length way1: "+word1);
+		  
+		  String word2 = str2.stream().max(Comparator.comparingInt(String::length)).get();
+		  System.out.println("Word with max length way2: "+word2);
 	}
 
 }
