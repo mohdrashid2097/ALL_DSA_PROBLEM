@@ -159,6 +159,9 @@ public class StringStreamQuestions {
 		  
 		  String word2 = str2.stream().max(Comparator.comparingInt(String::length)).get();
 		  System.out.println("Word with max length way2: "+word2);
+		  
+		  String word3 = str2.stream().min(Comparator.comparingInt(String::length)).get();
+		  System.out.println("Word with min length way2: "+word3);
 	}
 
 }
