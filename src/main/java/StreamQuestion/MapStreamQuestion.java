@@ -179,10 +179,23 @@ public class MapStreamQuestion {
          mp2.put("D", 60);
          Map<String,Integer> resultMergeredMap = Stream.concat(mp1.entrySet().stream(), mp2.entrySet().stream()).
         		 collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,Integer::sum));
-         System.out.println("Mergered Two Hashmap into one Map: "+resultMergeredMap);
+         //System.out.println("Mergered Two Hashmap into one Map: "+resultMergeredMap);
          
          
 		//Question-14
+        //Calculate length of string and store like key value pair.
+         List<String> list = List.of("Java", "Spring", "Boot");
+
+         Map<String, Integer> map = list.stream()
+                 .collect(Collectors.toMap(
+                         str -> str,
+                         str -> str.length()
+                 ));
+
+         System.out.println("String key value pair : "+map);
+         List<Integer> map1 = list.stream().map(str->str.length()).toList();
+         System.out.println("Length of each string: "+map1);
+         
 		//Question-15
 		
 
