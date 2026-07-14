@@ -26,7 +26,7 @@ public class PrintAllSubsequence {
 	}
 
 	
-	// this is to for to add all subset in arraylist
+	// this is to for to add all subset in array list
 	//============================================================================
 	public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>>  res = new ArrayList<>();
