@@ -14,6 +14,9 @@ public class MergeTwoUnSortedArray {
 		int[] res = Stream.of(arr1,arr2,arr3).flatMapToInt(Arrays::stream).distinct().sorted().toArray();
 		System.out.println(Arrays.toString(res));
 		
+		int[] res1 = Stream.of(arr1,arr2,arr3).flatMapToInt(a->Arrays.stream(a)).distinct().sorted().toArray();
+		System.out.println(Arrays.toString(res1));
+		
 		List<Integer> ll1 = Arrays.asList(2,3,5,8,9);
 		List<Integer> ll2 = Arrays.asList(8,9,4,2,1,0,8);
 		List<Integer> ll3 = Arrays.asList(8,9,4,2,1,0,8);

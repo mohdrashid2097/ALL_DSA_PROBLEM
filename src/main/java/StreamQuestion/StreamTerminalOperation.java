@@ -2,6 +2,7 @@ package StreamQuestion;
 
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -23,7 +24,10 @@ public class StreamTerminalOperation {
 		Optional<Integer> minNum = ll.stream().min(Integer::compareTo);
 		Optional<Integer> maxNum = ll.stream().max(Integer::compareTo);
 		
-		System.out.println("MinNum: "+minNum.get()+" : "+"MaxNum: "+maxNum.get());
+		Optional<Integer> minNum1 = ll.stream().min(Comparator.naturalOrder());
+		Optional<Integer> maxNum2 = ll.stream().max(Comparator.naturalOrder());
+		
+		System.out.println("MinNum1: "+minNum1.get()+" : "+"MaxNum2: "+maxNum2.get());
 		
 		boolean allEven = ll.stream().allMatch(n -> n%2==0); // Checks if all are even
 		boolean allOdd = ll.stream().anyMatch(n -> n%2==0);  // Checks if any are even
