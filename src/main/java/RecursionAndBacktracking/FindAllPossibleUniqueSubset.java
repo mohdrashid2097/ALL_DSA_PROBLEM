@@ -5,8 +5,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class SubsetSum2 {
+public class FindAllPossibleUniqueSubset {
 	
+	//It is a recursion and backtracking problem where we need to generate all possible subsets of an array that may contain duplicate elements, 
+	//but we must not return duplicate subsets.
+	
+	//This Subset II problem finds all possible unique subsets of the given array. It does not calculate their sums.
 	void findSubsets(int ind,int[] nums,List<Integer> ds,List<List<Integer>> ansList) {
 		
 		ansList.add(new ArrayList<>(ds));
@@ -28,7 +32,7 @@ public class SubsetSum2 {
 
 	public static void main(String[] args) {
 		
-		SubsetSum2 ss = new SubsetSum2();
+		FindAllPossibleUniqueSubset ss = new FindAllPossibleUniqueSubset();
 		int[] nums = {1,2,2};
 		System.out.println(ss.subsetWithDup(nums));
 
