@@ -31,6 +31,15 @@ public class LongestCommonSubstring {
 		}
 		System.out.println("Length of common SubString b/w 2 string: "+ maxValue);
 		System.out.println("****This is to get Common substring******");
+		
+		// this is just to print dp array to understand the code
+		for(int i=0;i<=n;i++) {
+			for(int j=0;j<=m;j++) {
+				System.out.print(dp[i][j]+ " ");
+			}
+			System.out.println();
+		}
+		
 		String ans ="";
 		while(dp[row][col] != 0) {
 			ans = s1.charAt(row-1) + ans;
