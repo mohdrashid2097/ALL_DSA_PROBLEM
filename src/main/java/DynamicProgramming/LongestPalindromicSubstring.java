@@ -19,7 +19,7 @@ public class LongestPalindromicSubstring {
         int n = s.length();
         for(int i=0;i<n;i++){
             for(int j=i;j<n;j++){
-                if(isPalindrome(s,i,j)==true){
+                if(isPalindrome(s,i,j)){
                     if((j-i+1) > maxlength){
                         maxlength = j-i+1;
                         start = i;

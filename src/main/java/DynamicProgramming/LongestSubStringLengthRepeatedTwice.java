@@ -22,7 +22,10 @@ public class LongestSubStringLengthRepeatedTwice {
 				}
 				
 				String sub = s.substring(i,j+1);
-				subFreq.merge(sub, 1, Integer::sum);
+				//subFreq.merge(sub, 1, Integer::sum);
+				subFreq.merge(sub, 1, (oldValue,newValue) -> oldValue+newValue);
+				//subFreq.put(sub, subFreq.getOrDefault(sub, 0)+1);
+				
 			}
 		}
 		
