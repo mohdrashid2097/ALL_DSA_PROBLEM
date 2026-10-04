@@ -2,6 +2,7 @@ package CloningInJava;
 
 public class GFGShallow implements Cloneable{
 
+	// Shallow cloning
 	public static void main(String[] args) {
 		// this is an example of shallow cloning in java
 		GFGShallow t1 = new GFGShallow();

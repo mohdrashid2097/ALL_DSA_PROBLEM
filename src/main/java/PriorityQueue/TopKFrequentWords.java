@@ -31,11 +31,7 @@ public class TopKFrequentWords {
 		String[] words = {"i","love","leetcode","i","love","coding"};
 		int k = 2;
 	    topKFrequent(words,k);
-	    
-	    
-		
-
-
 	}
 
 }
+

@@ -2,6 +2,7 @@ package CloningInJava;
 
 public class GFGDeep implements Cloneable {
 	
+	// Deep cloning
 	// creating clone method here
 	public Object clone() throws CloneNotSupportedException
 	{
