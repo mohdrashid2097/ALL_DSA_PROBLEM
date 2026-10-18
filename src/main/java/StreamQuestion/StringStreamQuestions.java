@@ -31,6 +31,10 @@ public class StringStreamQuestions {
 				.entrySet().stream().filter(entry-> entry.getValue()>1).map(Map.Entry::getKey).collect(Collectors.toSet());
 		//System.out.println("Duplicate Character: "+findDuplicateChar);
 		
+		List<Character> findDuplicateChar1 = input3.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(c->c,Collectors.counting()))
+				.entrySet().stream().filter(entry-> entry.getValue()>1).map(Map.Entry::getKey).distinct().collect(Collectors.toList());
+		System.out.println("findDuplicateChar1: "+findDuplicateChar1);
+		
 		//4. Reverse a string using Stream API
 		String input4 = "stream";
 		String resverse = Stream.of(input4).map(e-> new StringBuilder(e).reverse()).collect(Collectors.joining());
