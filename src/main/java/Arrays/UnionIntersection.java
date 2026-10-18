@@ -1,4 +1,4 @@
-	package Arrays;
+package Arrays;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.TreeSet;
 
 public class UnionIntersection {
 
-	// time coplexity O(m + n) space O(1);
+	// time complexity O(m + n) space O(1);
 	public static void union(int[] arr1, int m, int[] arr2, int n) {
 		List<Integer> ll = new ArrayList<>();
 		int i=0,j=0;
