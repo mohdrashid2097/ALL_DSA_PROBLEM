@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamTerminalOperation {
 
@@ -37,6 +38,11 @@ public class StreamTerminalOperation {
 		Map<Boolean,List<Integer> > p = ll.stream().collect(Collectors.partitioningBy(n->n%2==0));
 		System.out.println("Even number: "+p.get(true));
 		System.out.println("Odd number: "+p.get(false));
+		
+		//flatMap = transform one element into multiple elements and flatten them into a single stream.
+		String str = "NoidaGurugram";
+		List<String> ansStr = Stream.of(str).flatMap(s->Arrays.stream(s.split(""))).toList();
+		System.out.println("FaltMap Example: "+ansStr);
 		
 
 	}
