@@ -166,6 +166,8 @@ public class StringStreamQuestions {
 		  
 		  String word3 = str2.stream().min(Comparator.comparingInt(String::length)).get();
 		  System.out.println("Word with min length way2: "+word3);
+		  
+		  
 	}
 
 }

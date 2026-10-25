@@ -3,6 +3,7 @@ package StreamQuestion;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
@@ -86,6 +87,14 @@ public class InterviewQuestions {
 	    
 	    String strResult = strr.chars().mapToObj(c->(char)c).distinct().map(String::valueOf).collect(Collectors.joining());
 	    //System.out.println("Unique Output: "+strResult);
+	    
+	    //"Given a String, group all occurrences of each character into a List using Java Streams, 
+	    //while maintaining the order in which the characters first appear."
+	    String strr1 = "aabdcc";
+	    List<List<Character>> ansGroup = strr1.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(c->c,
+	    		LinkedHashMap::new, Collectors.toList()
+	    		)).values().stream().toList();
+	    System.out.println("Ans Group: "+ansGroup);
 	    
 	}
 }
