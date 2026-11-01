@@ -147,7 +147,7 @@ public class EmplyeesStream {
 				
 				));
 		topEmp.forEach((dept,e)->{
-			System.out.println("Depart: "+dept+" : Employee: "+e.get(0).name);
+			//System.out.println("Depart: "+dept+" : Employee: "+e.get(0).name);
 		});
 		
 		// 1st 2nd 3rd hight salary in department
@@ -162,8 +162,25 @@ public class EmplyeesStream {
 						.collect(Collectors.toList())
 				)));
 		topEmp2nd.forEach((dept, s)->{
-			System.out.println("Departent: "+dept+" : Salary: "+s);
+			//System.out.println("Departent: "+dept+" : Salary: "+s);
 		});
+		
+		// top one employee of each department
+		Map<String, List<Employee>> topOneEmp = emp.stream().collect(Collectors.groupingBy(
+				e->e.getDepart(),
+				Collectors.collectingAndThen(Collectors.toList(), list->list.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()
+						).limit(1).collect(Collectors.toList()))
+				
+				));
+		topOneEmp.forEach((dept, s)->{
+			//System.out.println("Departent: "+dept+" : Name: "+s.get(0).name);
+		});
+		
+		// top employee among all the department
+		Employee topHightPaidEmp = emp.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(1).findFirst().get();
+		System.out.println("Name: "+topHightPaidEmp.getName());
+		System.out.println("Department Name: "+topHightPaidEmp.getDepart());
+		System.out.println("Employee Salary: "+topHightPaidEmp.getSalary());
 	}
 
 }
