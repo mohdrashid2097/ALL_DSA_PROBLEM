@@ -192,12 +192,18 @@ public class MapStreamQuestion {
                          str -> str.length()
                  ));
 
-         System.out.println("String key value pair : "+map);
+         //System.out.println("String key value pair : "+map);
          List<Integer> map1 = list.stream().map(str->str.length()).toList();
-         System.out.println("Length of each string: "+map1);
+         //System.out.println("Length of each string: "+map1);
          
 		//Question-15
-		
+        // print map 
+         Map<String, Integer> map0 = new HashMap<>();
+         map11.put("Alice", 30);
+         map11.put("Bob", 20);
+         map11.put("Charlie", 50);
+         map11.put("Diana", 10);
+		 map0.entrySet().stream().forEach(entry->System.out.println("Key: "+entry.getKey()+" : Value: "+entry.getValue()));
 
 	}
 

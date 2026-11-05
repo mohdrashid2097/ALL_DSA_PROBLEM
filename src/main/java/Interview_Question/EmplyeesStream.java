@@ -112,7 +112,7 @@ public class EmplyeesStream {
 								e->e.depart, 
 								Collectors.maxBy(Comparator.comparingDouble(e->e.getSalary()))));
 		employee3.forEach((depart,e) ->{
-			//System.out.println("Depart: "+depart+" : MaximumSalary: "+e);
+			System.out.println("Depart: "+depart+" : MaximumSalary: "+e);
 		});
 		
 		// Group by department and create a summary (count, sum, avg, min, max)
