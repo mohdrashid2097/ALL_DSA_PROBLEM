@@ -44,6 +44,10 @@ public class DemoMethod {
 		BillPughSolutionBest obj6 = BillPughSolutionBest.getInstance();
 		obj6.setName("Rakesh");
 		System.out.println("BillPughSolutionBest Name: "+obj6.getName());
+		BillPughSolutionBest obj7 = BillPughSolutionBest.getInstance();
+		obj7.setName("Yes Equal");
+		System.out.println("BillPughSolutionBest Name: "+obj7.getName());
+		System.out.println("Checking Singleton Behaviour: "+(obj6==obj7));
 	}
 
 }
