@@ -6,6 +6,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class OptionalClassesQuestionNotes {
+	
+	public static String getName() {
+	    return null;
+	}
 
 	public static void main(String[] args) {
 		
@@ -119,7 +123,7 @@ public class OptionalClassesQuestionNotes {
 		Optional<String> name1 = Optional.of("Rashid");
 
 		if(name1.isPresent()) {
-		    System.out.println(name1.get());
+		    //System.out.println(name1.get());
 		}
 		
 		
@@ -133,7 +137,26 @@ public class OptionalClassesQuestionNotes {
 		
 		Optional<String> name2 = Optional.of("Rashid");
 
-		name2.ifPresent(n -> System.out.println(n));
+		//name2.ifPresent(n -> System.out.println(n));
+		
+		String name11 = getName();
+	    //System.out.println(name11.toUpperCase()); //NPE
+		Optional<String> name111 = Optional.ofNullable(null);
+		System.out.println(name111.orElse("Default Name"));
+		
+		
+//		Method	      		Purpose
+//		isPresent()			->	Checks whether value exists
+//		isEmpty()			->	Checks whether value is absent (Java 11+)
+//		get()				->	Returns value; throws exception if empty
+//		orElse()			->	Returns default value if empty
+//		orElseGet()			->	Uses Supplier to generate default value
+//		orElseThrow()		->	Throws exception if empty
+//		ifPresent()			->	Executes code if value exists
+//		ifPresentOrElse()	->	Handles both present and empty cases
+//		map()				->	Transforms the value
+//		flatMap()		  	->	Transforms into another Optional
+//		filter()			->	Filters the value based on a condition
 		
 		
 	}
