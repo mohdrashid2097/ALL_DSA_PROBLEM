@@ -2,11 +2,15 @@ package StreamQuestion;
 
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.NoSuchElementException;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -203,7 +207,28 @@ public class MapStreamQuestion {
          map11.put("Bob", 20);
          map11.put("Charlie", 50);
          map11.put("Diana", 10);
-		 map0.entrySet().stream().forEach(entry->System.out.println("Key: "+entry.getKey()+" : Value: "+entry.getValue()));
+		 //map0.entrySet().stream().forEach(entry->System.out.println("Key: "+entry.getKey()+" : Value: "+entry.getValue()));
+         
+         // tricky question
+         TreeMap<String,String> tm = new TreeMap<String, String>();
+         //tm.put(null, "A"); Null not Allow -> NPE
+         
+         TreeSet<String> ts = new TreeSet<String>();
+         //ts.add(null); Null not Allow -> NPE
+         
+         Hashtable<String,String> ht = new Hashtable();
+         //ht.put(null, "A"); Null not Allow -> NPE
+         
+         ConcurrentHashMap<String, String> cm = new ConcurrentHashMap<String, String>();
+         //cm.put(null, "A"); Null not Allow -> NPE
+         
+         LinkedHashMap<String, String> lm = new LinkedHashMap<String, String>();
+         //lm.put(null, "A"); Null allowed
+         
+         HashMap<String, String> hm = new HashMap<String, String>();
+         //hm .put(null, "A"); Null Allowed
+         
+         
 
 	}
 
