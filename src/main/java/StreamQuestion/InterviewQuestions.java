@@ -83,7 +83,7 @@ public class InterviewQuestions {
 		String strr = "abcdeab";
 		HashSet<Character> hs = new HashSet();
 	    List<Character> res = strr.chars().mapToObj(c->(char)c).filter(c->hs.add(c)).collect(Collectors.toList());
-	    System.out.println(res);
+	    //System.out.println(res);
 	    
 	    String strResult = strr.chars().mapToObj(c->(char)c).distinct().map(String::valueOf).collect(Collectors.joining());
 	    //System.out.println("Unique Output: "+strResult);
@@ -94,7 +94,10 @@ public class InterviewQuestions {
 	    List<List<Character>> ansGroup = strr1.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(c->c,
 	    		LinkedHashMap::new, Collectors.toList()
 	    		)).values().stream().toList();
-	    System.out.println("Ans Group: "+ansGroup);
+//	    System.out.println("Ans Group: "+ansGroup);
+	    
+	    
+	    
 	    
 	}
 }

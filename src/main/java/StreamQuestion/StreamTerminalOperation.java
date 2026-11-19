@@ -3,9 +3,11 @@ package StreamQuestion;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,9 +28,20 @@ public class StreamTerminalOperation {
 		Optional<Integer> maxNum = ll.stream().max(Integer::compareTo);
 		
 		Optional<Integer> minNum1 = ll.stream().min(Comparator.naturalOrder());
-		Optional<Integer> maxNum2 = ll.stream().max(Comparator.naturalOrder());
+		Optional<Integer> maxNum2 = ll.stream().max(Comparator.reverseOrder());
+		int sumQ = ll.stream().mapToInt(Integer::intValue).sum();
+		OptionalDouble avgQ = ll.stream().mapToInt(Integer::intValue).average();
+		long countQ = ll.stream().count();
 		
 		System.out.println("MinNum1: "+minNum1.get()+" : "+"MaxNum2: "+maxNum2.get());
+		
+		// common method for all the operation min.max,avg,count and sum
+		IntSummaryStatistics ansAll = ll.stream().mapToInt(Integer::intValue).summaryStatistics();
+		System.out.println("Min: "+ansAll.getMin());
+		System.out.println("Max: "+ansAll.getMax());
+		System.out.println("Avg: "+ansAll.getAverage());
+		System.out.println("Sum: "+ansAll.getSum());
+		System.out.println("Count: "+ansAll.getCount());
 		
 		boolean allEven = ll.stream().allMatch(n -> n%2==0); // Checks if all are even
 		boolean allOdd = ll.stream().anyMatch(n -> n%2==0);  // Checks if any are even
