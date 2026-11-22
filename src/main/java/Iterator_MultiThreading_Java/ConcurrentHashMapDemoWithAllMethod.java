@@ -19,8 +19,58 @@ public class ConcurrentHashMapDemoWithAllMethod {
 		
 		map.put("sum", 10);
 		map.merge("sum", 20, Integer::sum);
-		System.out.println("Sum: "+map.get("sum"));
+		//System.out.println("Sum: "+map.get("sum"));
 
+		
+		ConcurrentHashMap<String, Integer> employees = new ConcurrentHashMap<>();
+		
+
+        // 1. putIfAbsent()
+        employees.putIfAbsent("Rashid", 50000);
+        employees.putIfAbsent("Rashid", 60000);
+
+        System.out.println("1. putIfAbsent: " + employees);
+
+
+        // 2. computeIfAbsent()
+        employees.computeIfAbsent("Amit", key -> 40000);
+
+        System.out.println("2. computeIfAbsent: " + employees);
+
+
+        // 3. computeIfPresent()
+        employees.computeIfPresent(
+                "Rashid",
+                (key, salary) -> salary + 10000
+        );
+
+        System.out.println("3. computeIfPresent: " + employees);
+
+
+        // 4. compute()
+        employees.compute(
+                "Rashid",
+                (key, salary) -> salary + 5000
+        );
+
+        System.out.println("4. compute: " + employees);
+
+
+        // 5. merge()
+        employees.merge(
+                "Rashid",
+                5000,
+                (oldSalary, newSalary) -> oldSalary + newSalary
+        );
+
+        System.out.println("5. merge: " + employees);
+
+
+        // 6. replace()
+        employees.replace("Rashid", 80000, 90000);
+
+        System.out.println("6. replace: " + employees);
+	
 	}
 	
 //	Summary of atomic methods
@@ -33,5 +83,10 @@ public class ConcurrentHashMapDemoWithAllMethod {
 //	computeIfPresent()			Key present							Update existing value
 //	compute()					Always evaluates mapping			Insert/update/remove
 //	merge()						Key exists or doesn't exist			Combine values
+	
+	
+	 
+	 
+	 
 
 }
