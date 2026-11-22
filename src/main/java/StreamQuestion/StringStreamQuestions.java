@@ -69,7 +69,7 @@ public class StringStreamQuestions {
 		
 		//10. Find the longest word in a sentence
 		String sentence1 = "Stream API is awesome";
-		String longestWord = Arrays.stream(sentence1.split(" ")).max(Comparator.comparingInt(String::length)).orElse("");
+		String longestWord = Arrays.stream(sentence1.split(" ")).max(Comparator.comparingInt(String::length)).get();
 		//System.out.println("Longest word: "+longestWord);
 		
 		//11. Find all substrings of a string
