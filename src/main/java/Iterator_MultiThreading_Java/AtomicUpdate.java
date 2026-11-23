@@ -12,7 +12,5 @@ public class AtomicUpdate {
 			System.out.println("Atomic Update: "+count.getAndIncrement());
 			//count.incrementAndGet();
 		}
-
 	}
-
 }
